@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jayant Lohar · Portfolio</title>
+  <meta name="description" content="Portfolio of Jayant Lohar – Hospitality educator & assistant professor." />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config: enable dark mode by class
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            glow: '0 0 20px rgba(59,130,246,.35)'
+          },
+          animation: {
+            marquee: 'marquee 30s linear infinite',
+            marquee2: 'marquee2 30s linear infinite',
+            floaty: 'floaty 6s ease-in-out infinite',
+          },
+          keyframes: {
+            marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+            marquee2: { '0%': { transform: 'translateX(50%)' }, '100%': { transform: 'translateX(0%)' } },
+            floaty: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Lenis (smooth scroll) -->
+  <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
+  <!-- Icons -->
+  <script type="module" src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Subtle grid background */
+    .grid-bg { background-image: radial-gradient(rgba(99,102,241,.2) 1px, transparent 0); background-size: 20px 20px; }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.55); }
+    .glass-dark { backdrop-filter: blur(10px); background: rgba(17,24,39,0.55); }
+    /* Hide the duplicate marquee on small width overflow */
+    .marquee-track { display: flex; width: 200%; }
+  </style>
+</head>
+<body class="font-display bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 selection:bg-indigo-300/40 dark:selection:bg-indigo-600/40">
+  <!-- ===== Header / Nav ===== -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="mt-4 flex items-center justify-between rounded-2xl border border-gray-200/70 dark:border-gray-800/70 px-4 py-3 shadow-lg backdrop-blur-lg bg-white/70 dark:bg-gray-900/70">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="size-9 rounded-xl bg-indigo-500/10 dark:bg-indigo-400/10 grid place-items-center shadow-glow">
+            <i data-lucide="sparkles" class="size-5"></i>
+          </div>
+          <span class="font-semibold tracking-wide">Jayant Lohar</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#about">About</a>
+          <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#experience">Experience</a>
+          <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#education">Education</a>
+          <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#certifications">Certificates</a>
+          <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#events">Events</a>
+          <a class="hover:text-indigo-600 dark:hover:text-indigo-400" href="#contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button id="themeToggle" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 border border-gray-200 dark:border-gray-800 hover:border-indigo-400/60 hover:shadow-glow transition">
+            <i data-lucide="moon" class="size-4 hidden dark:block"></i>
+            <i data-lucide="sun" class="size-4 dark:hidden"></i>
+            <span class="text-xs">Theme</span>
+          </button>
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-indigo-600 text-white hover:bg-indigo-500 transition shadow-glow">
+            <i data-lucide="send"></i>
+            <span class="text-xs font-semibold">Let’s Connect</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="pt-28">
+    <!-- ===== Hero ===== -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 grid-bg opacity-40 dark:opacity-30"></div>
+      <div class="mx-auto max-w-7xl px-4 py-16 md:py-24 relative">
+        <div class="grid md:grid-cols-12 gap-10 items-center">
+          <div class="md:col-span-7" data-aos="fade-right">
+            <div class="inline-flex items-center gap-2 rounded-full border border-gray-200/70 dark:border-gray-800/70 bg-white/60 dark:bg-gray-900/60 px-3 py-1 text-xs mb-4">
+              <i data-lucide="badge-check" class="size-4"></i>
+              <span>Assistant Professor · Hospitality</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+              Educator shaping <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-cyan-500">future hospitality leaders</span>
+            </h1>
+            <p class="mt-5 max-w-2xl text-gray-600 dark:text-gray-300">
+              Dedicated hospitality educator with a strong background in housekeeping, food production, and beverage management. Passionate about practical learning and professional growth.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a href="mailto:loharj79@gmail.com" class="rounded-xl px-4 py-2 bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:opacity-90 transition inline-flex items-center gap-2">
+                <i data-lucide="mail" class="size-4"></i>Email
+              </a>
+              <a href="https://linkedin.com/in/jayant-lohar-a433a8224" target="_blank" class="rounded-xl px-4 py-2 border border-gray-300 dark:border-gray-700 hover:border-indigo-400/70 transition inline-flex items-center gap-2">
+                <i data-lucide="linkedin" class="size-4"></i>LinkedIn
+              </a>
+              <a href="https://sites.google.com/view/hospitalityhub/home" target="_blank" class="rounded-xl px-4 py-2 border border-gray-300 dark:border-gray-700 hover:border-indigo-400/70 transition inline-flex items-center gap-2">
+                <i data-lucide="globe" class="size-4"></i>Website
+              </a>
+              <a href="#" class="rounded-xl px-4 py-2 border border-indigo-300/60 text-indigo-700 dark:text-indigo-300 dark:border-indigo-700/60 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/30 transition inline-flex items-center gap-2">
+                <i data-lucide="download" class="size-4"></i>Resume (PDF)
+              </a>
+            </div>
+          </div>
+          <div class="md:col-span-5 relative" data-aos="fade-left">
+  <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200/60 dark:ring-gray-800/80 glass dark:glass-dark">
+    <div class="h-full w-full grid place-items-center">
+      <img src="photo.jpg" alt="Jayant Lohar" class="h-full w-full object-cover">
+    </div>
+  </div>
+  <div class="absolute -bottom-6 -left-6 hidden md:block" data-aos="zoom-in" data-aos-delay="200">
+    <div class="rounded-2xl px-4 py-3 bg-white/80 dark:bg-gray-900/80 border border-gray-200/70 dark:border-gray-800/70 shadow-lg">
+      <div class="text-xs text-gray-600 dark:text-gray-300">Current Role</div>
+      <div class="font-semibold">Assistant Professor – Asia Pacific Institute of Hotel Management</div>
+      <div class="text-xs text-gray-500">Feb 2025 – Present</div>
+    </div>
+  </div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <!-- ===== Live scrolling skills marquee ===== -->
+      <div class="relative py-6 border-y border-gray-200/70 dark:border-gray-800/70 overflow-hidden">
+        <div class="marquee-track animate-marquee">
+          <ul class="flex items-center gap-4 whitespace-nowrap text-sm font-medium opacity-80">
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Front Office</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">F&amp;B Service</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Housekeeping</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Training &amp; Placement</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Curriculum Design</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Academic Coordination</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Event Management</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Mentoring</li>
+          </ul>
+          <!-- duplicate for seamless loop -->
+          <ul class="flex items-center gap-4 whitespace-nowrap text-sm font-medium opacity-80">
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Front Office</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">F&amp;B Service</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Housekeeping</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Training &amp; Placement</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Curriculum Design</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Academic Coordination</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Event Management</li>
+            <li class="px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700">Mentoring</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-12 gap-10 items-start">
+        <div class="md:col-span-5" data-aos="fade-up">
+          <h2 class="text-2xl md:text-3xl font-bold">About</h2>
+          <p class="mt-4 text-gray-600 dark:text-gray-300">I aim to inspire and equip students with essential skills for career success while fostering a dynamic learning environment that blends practical exposure with academic rigor.</p>
+          <div class="mt-6 grid grid-cols-2 gap-3 text-sm">
+            <div class="p-4 rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+              <div class="text-gray-500">Email</div>
+              <div class="font-medium">loharj79@gmail.com</div>
+            </div>
+            <div class="p-4 rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+              <div class="text-gray-500">Phone</div>
+              <div class="font-medium">+91 7758821693</div>
+            </div>
+            <div class="p-4 rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+              <div class="text-gray-500">Location</div>
+              <div class="font-medium">India</div>
+            </div>
+            <div class="p-4 rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+              <div class="text-gray-500">Languages</div>
+              <div class="font-medium">English · Hindi · Marathi</div>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-7 grid gap-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70">
+            <h3 class="font-semibold">Personal Strengths</h3>
+            <ul class="mt-3 grid sm:grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside">
+              <li>Strong communication & mentoring</li>
+              <li>Adaptability & client service mindset</li>
+              <li>Prompt, collaborative, and proactive</li>
+              <li>Continuous learning & skill-building</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70">
+            <h3 class="font-semibold">Computer Skills</h3>
+            <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="p-3 rounded-xl border border-gray-200/70 dark:border-gray-800/70">MSCIT</div>
+              <div class="p-3 rounded-xl border border-gray-200/70 dark:border-gray-800/70">MS Excel (Intermediate)</div>
+              <div class="p-3 rounded-xl border border-gray-200/70 dark:border-gray-800/70">MS Word (Intermediate)</div>
+              <div class="p-3 rounded-xl border border-gray-200/70 dark:border-gray-800/70">PowerPoint (Intermediate)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section id="experience" class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Experience</h2>
+      <div class="relative">
+        <div class="absolute md:left-5/12 bg-gradient-to-b from-indigo-500/60 to-fuchsia-500/60 w-1 rounded-full h-full"></div>
+        <ol class="space-y-8">
+          <li class="relative" data-aos="fade-up">
+            <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+              <div class="md:col-span-5 md:text-right">
+                <div class="text-sm text-gray-500">Feb 2025 – Present</div>
+                <div class="font-semibold">Assistant Professor</div>
+                <div class="text-sm">Asia Pacific Institute of Hotel Management</div>
+              </div>
+              <div class="md:col-span-7 mt-2 md:mt-0">
+                <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+                  <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
+                    <li>Exam Coordinator; oversees Training & Placement activities.</li>
+                    <li>Senior Faculty managing academic operations and coordination.</li>
+                    <li>Teaching: Front Office and Food & Beverage Service.</li>
+                    <li>Curriculum planning, academic delivery, and skill development.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="md:grid md:grid-cols-12 md:gap-8 items-start">
+              <div class="md:col-span-5 md:text-right">
+                <div class="text-sm text-gray-500">2023 – Present</div>
+                <div class="font-semibold">Assistant Professor</div>
+                <div class="text-sm">Magarpatta College of Hospitality, Pune</div>
+              </div>
+              <div class="md:col-span-7 mt-2 md:mt-0">
+                <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+                  <ul class="list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
+                    <li>Member: CDC & IQAC – driving quality and infrastructure initiatives.</li>
+                    <li>Student Grievance Committee & Equal Opportunity Cell.</li>
+                    <li>Student Development Cell: growth and engagement beyond academics.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Education ===== -->
+    <section id="education" class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Education</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70" data-aos="zoom-in">
+          <div class="text-sm text-gray-500">2024 – 2027</div>
+          <div class="font-semibold">PhD – Hospitality & Tourism Management</div>
+          <div class="text-sm">Amity University Jaipur</div>
+        </div>
+        <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70" data-aos="zoom-in" data-aos-delay="100">
+          <div class="text-sm text-gray-500">2021 – 2023</div>
+          <div class="font-semibold">M.Sc. – Hotel Administration</div>
+          <div class="text-sm">Dr. Ambedkar Institute of Hotel Management</div>
+        </div>
+        <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70" data-aos="zoom-in" data-aos-delay="200">
+          <div class="text-sm text-gray-500">2018 – 2021</div>
+          <div class="font-semibold">B.Sc. – Hospitality & Hotel Administration</div>
+          <div class="text-sm">IHM & Catering Technology Silvassa</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Certifications / Professional Development ===== -->
+    <section id="certifications" class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">Professional Development</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up">FDP – Westin Pune (Restaurant Management)</div>
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="50">Blockchain Technology – Development Program</div>
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="100">FDP – NAAC Accreditation</div>
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="150">Entrepreneurial Avenues in Hospitality</div>
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="200">National FDP – Deep Learning & AI</div>
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="250">IFDP – Innovations, Entrepreneurship & Sustainability in Tourism/Hospitality</div>
+        <div class="p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="300">IFDP – Research Skills: Design to Publication</div>
+      </div>
+    </section>
+
+    <!-- ===== Events (scrollable live list) ===== -->
+    <section id="events" class="mx-auto max-w-7xl px-4 py-16">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl md:text-3xl font-bold">Events & Committees</h2>
+        <div class="text-xs text-gray-500">Auto-scroll feed</div>
+      </div>
+      <div class="relative overflow-hidden rounded-2xl border border-gray-200/70 dark:border-gray-800/70">
+        <ul id="eventsFeed" class="divide-y divide-gray-200 dark:divide-gray-800 max-h-64 overflow-y-auto">
+          <li class="px-5 py-4">Onam Lunch · Maharashtra Theme Lunch</li>
+          <li class="px-5 py-4">Freshers Day · Nakshatra Theme Dinner</li>
+          <li class="px-5 py-4">Annual Sports Day · Orientation Day</li>
+          <li class="px-5 py-4">Annual Day & Farewell</li>
+          <li class="px-5 py-4">College Development Committee · IQAC</li>
+          <li class="px-5 py-4">Student Grievance Committee · Equal Opportunity Cell</li>
+          <li class="px-5 py-4">Student Development Cell</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Achievements & Hobbies ===== -->
+    <section class="mx-auto max-w-7xl px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up">
+          <h3 class="font-semibold">Achievements</h3>
+          <ul class="mt-3 grid gap-2 text-sm text-gray-700 dark:text-gray-300 list-disc list-inside">
+            <li>National Player – Football, Cricket & Volleyball</li>
+            <li>House Vice Captain (School)</li>
+            <li>Inter School Debate – First Position</li>
+            <li>Inter School Quiz – Second Position</li>
+            <li>UT Level Speech</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="font-semibold">Interests</h3>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm">
+            <span class="px-3 py-2 rounded-full border border-gray-200/70 dark:border-gray-800/70">Gaming</span>
+            <span class="px-3 py-2 rounded-full border border-gray-200/70 dark:border-gray-800/70">Virtual Gaming</span>
+            <span class="px-3 py-2 rounded-full border border-gray-200/70 dark:border-gray-800/70">Travel</span>
+            <span class="px-3 py-2 rounded-full border border-gray-200/70 dark:border-gray-800/70">Learning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="mx-auto max-w-7xl px-4 py-16">
+      <div class="rounded-3xl p-8 md:p-12 border border-gray-200/70 dark:border-gray-800/70 bg-gradient-to-br from-indigo-50/60 to-fuchsia-50/60 dark:from-indigo-950/30 dark:to-fuchsia-950/30">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7">
+            <h2 class="text-2xl md:text-3xl font-bold">Let’s collaborate</h2>
+            <p class="mt-3 text-gray-600 dark:text-gray-300">Open to academic collaborations, workshops, and industry-academia initiatives.</p>
+            <div class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
+              <a href="mailto:loharj79@gmail.com" class="flex items-center gap-3 rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 hover:border-indigo-400/70">
+                <i data-lucide="mail" class="size-4"></i>
+                <span>loharj79@gmail.com</span>
+              </a>
+              <a href="tel:+917758821693" class="flex items-center gap-3 rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 hover:border-indigo-400/70">
+                <i data-lucide="phone" class="size-4"></i>
+                <span>+91 77588 21693</span>
+              </a>
+              <a href="https://linkedin.com/in/jayant-lohar-a433a8224" target="_blank" class="flex items-center gap-3 rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 hover:border-indigo-400/70">
+                <i data-lucide="linkedin" class="size-4"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://sites.google.com/view/hospitalityhub/home" target="_blank" class="flex items-center gap-3 rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 hover:border-indigo-400/70">
+                <i data-lucide="globe" class="size-4"></i>
+                <span>Hospitality Hub</span>
+              </a>
+            </div>
+          </div>
+          <div class="md:col-span-5">
+            <form class="grid gap-3">
+              <input type="text" placeholder="Your name" class="w-full rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60" />
+              <input type="email" placeholder="Email" class="w-full rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60" />
+              <textarea rows="4" placeholder="Message" class="w-full rounded-xl px-4 py-3 border border-gray-300 dark:border-gray-700 bg-white/60 dark:bg-gray-900/60"></textarea>
+              <button type="button" class="justify-self-start rounded-xl px-5 py-3 bg-indigo-600 text-white hover:bg-indigo-500 shadow-glow inline-flex items-center gap-2">
+                <i data-lucide="send"></i>
+                <span>Send Message</span>
+              </button>
+              <p class="text-xs text-gray-500">(Demo form – wire up with Formspree, Netlify Forms, or your backend.)</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto max-w-7xl px-4 py-10 text-sm text-gray-500">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+      <div>© <span id="year"></span> Jayant Lohar. All rights reserved.</div>
+      <div class="flex items-center gap-3">
+        <a href="#home" class="hover:text-indigo-500">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // Init icons
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+    // Theme toggling with system preference + persistence
+    (function() {
+      const root = document.documentElement;
+      const key = 'theme-preference';
+      const stored = localStorage.getItem(key);
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = stored ? stored === 'dark' : systemDark;
+      root.classList.toggle('dark', isDark);
+
+      const btn = document.getElementById('themeToggle');
+      btn?.addEventListener('click', () => {
+        const nowDark = !root.classList.contains('dark');
+        root.classList.toggle('dark', nowDark);
+        localStorage.setItem(key, nowDark ? 'dark' : 'light');
+        if (window.lucide) lucide.createIcons();
+      });
+    })();
+
+    // AOS init
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+    });
+
+    // Lenis smooth scrolling
+    window.addEventListener('load', () => {
+      try {
+        const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      } catch (e) {}
+    });
+
+    // Auto-scroll events feed (live element)
+    (function autoScrollFeed(){
+      const feed = document.getElementById('eventsFeed');
+      if (!feed) return;
+      let scrollPos = 0;
+      let direction = 1;
+      function tick(){
+        if (feed.scrollHeight <= feed.clientHeight) return; // nothing to scroll
+        scrollPos += direction * 0.4; // speed
+        if (scrollPos <= 0) direction = 1;
+        if (scrollPos >= (feed.scrollHeight - feed.clientHeight)) direction = -1;
+        feed.scrollTo({ top: scrollPos, behavior: 'instant' });
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>
